@@ -1,20 +1,35 @@
 version: "3"
 
+networks:
+  ph-test:
+    external: true
+
 services:
   web:
+    container_name: web
     build: .
     ports:
-      - "8080:8080"
+      - "8082:8080"
     env_file:
       - .env
+    depends_on:
+      - mongodb
+    networks:
+     - ph-test
 
   mongodb:
-    image: bitnami/mongodb:latest
+    image: mongo
+    container_name: mongodb
     ports:
-      - "27017"
+      - 27017:27017
     volumes:
-      - data:/bitnami/mongodb
-
+      - ~/apps/search_data/mongo:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=test
+      - MONGO_INITDB_ROOT_PASSWORD=test123
+      - MONGO_INITDB_DATABASE=development=testdb
+    networks:
+      - ph-test
 
 volumes:
   data:

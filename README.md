@@ -2,6 +2,13 @@
 
 A simple starter for building RESTful APIs with FastAPI and MongoDB. 
 
+## env.dev example
+
+```
+DATABASE_URL=mongodb://test:test123@mongodb:27017/testdb?authSource=admin&retryWrites=true&w=majority
+secret_key=fhnjdlndsfnfds
+```
+
 ## Features
 
 + Python FastAPI backend.
