@@ -17,7 +17,7 @@ async def start_database():
 
 @app.get("/", tags=["Root"])
 async def read_root():
-    return {"message": "Welcome to this fantastic app your are in DEV"}
+    return {"message": "Welcome to this fantastic app your are in QA"}
 
 
 app.include_router(AdminRouter, tags=["Administrator"], prefix="/admin")
