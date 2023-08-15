@@ -19,7 +19,7 @@ services:
 
   mongodb:
     image: mongo
-    container_name: mongodb
+    container_name: mongodb_test
     ports:
       - 27019:27017
     volumes:
